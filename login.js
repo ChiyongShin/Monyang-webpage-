@@ -41,21 +41,55 @@ function login(){
   // ...
 });
 
+
 }
 
-/*firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     document.getElementById("user_div").style.display="block";
-    var user=firebase.auth().currentuser;
+    document.getElementById("login_div").style.display="none";
+
+
+    var user=firebase.auth().currentUser;
 
     if(user!=null){
       var email_id=user.email;
-      document.getElementById("user")
+      var email_verified= user.emailVerified;
+
+      document.getElementById("user_para").innerHTML="Welcome : " + email_id +"<br/> Verified : "+email_verified;
+
+
+      if(email_verified){
+        document.getElementById("verify_btn").style.display="none";
+      }
+      else{
+        document.getElementById("verify_btn").style.display="block";
+      }
+
     }
     // ...
   } else {
-    // User is signed out.
-    // ...
+    document.getElementById("user_div").style.display="none";
+    document.getElementById("login_div").style.display="block";
   }
-});*/
+});
+
+function logout(){
+  firebase.auth().signOut().then(function() {
+
+  }).catch(function(error){
+
+  });
+
+}
+
+function send_verification() {
+  var user=firebase.auth().currentUser;
+
+  user.sendEmailVerification().then(function(){
+    alert("Verification Sent");
+  }).catch(function(error){
+    alert("Error : "+errorMessage);
+  });
+}
