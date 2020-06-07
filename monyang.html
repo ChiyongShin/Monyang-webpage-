@@ -36,6 +36,24 @@
     margin=0px;
   }
 
+  *{margin:0;padding:0;}
+   ul,li{list-style:none;}
+   #slide{height:100%;position:relative;overflow:hidden;}
+   #slide ul{width:400%;height:100%;transition:1s;}
+   #slide ul:after{content:"";display:block;clear:both;}
+   #slide li{float:left;width:25%;height:100%;}
+   #slide input{display:none;}
+   #slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+   #slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+   #pos1:checked~ul{margin-left:0%;}
+   #pos2:checked~ul{margin-left:-100%;}
+   #pos3:checked~ul{margin-left:-200%;}
+   #pos4:checked~ul{margin-left:-300%;}
+   #pos1:checked~.pos>label:nth-child(1){background:#666;}
+   #pos2:checked~.pos>label:nth-child(2){background:#666;}
+   #pos3:checked~.pos>label:nth-child(3){background:#666;}
+
+  
   .bg-2{
     font-size: 20px;
     background-color: #ffffff;
@@ -98,8 +116,7 @@
           <nav class="navbar1">
               <div class="collapse navbar-collapse">
                 <ul class="nav navbar1-nav navbar-right">
-                  <li><a href="login.html">SignUp / Login</a></li>
-                  <li><a href="#">QnA</a></li>
+                  <li><a href="login.html">SignUp ♥ Login</a></li>
                 </ul>
               </div>
             </div>
@@ -126,171 +143,65 @@
       </div>
     </nav>
 
-    <div class="container-fluid text-center bg-1">
-      <img src="banner/banner1.jpg" width="1427" height="449" class="img-rounded responsive">
-      <br>
-      </div>
+   
+      <div class="container-fluid text-center bg-1" >
+      <div id="slide">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <ul>
+    <li><img src="banner1.jpg" style="width:100%"></li>
+    <li><img src="banner2.jpg" style="width:100%"></li>
+    <li><img src="banner3.jpg" style="width:100%"></li>
+  </ul>
+  <p class="pos">
+    <label for="pos1"></label>
+    <label for="pos2"></label>
+    <label for="pos3"></label>
+  </p>
+</div>
 
+    </div>
+  
 
       <div class="container-fluid text-center bg-2">
         <h2>BEST</h2>
         <br>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
+              <br>
+          </div>
+          <div class="col-sm-2">
               <br>
             <img src="toy/toy1.jpg" alt="best1" width="300" height="300" class="img-responsive">
             <p>[Pet Morning] BBQ toy</p>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
               <br>
             <img src="feed/feed2.jpg" alt="best2" width="300" height="300" class="img-responsive">
             <p>[Now] Grain Free small Breed Puppy DF</p>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
               <br>
             <img src="snacks/snacks4.jpg" alt="best3" width="300" height="300" class="img-responsive">
             <p>[Happi Doggy] Zest Orange</p>
           </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <br>
           <img src="toy/toy2.jpg" alt="best4" width="300" height="300" class="img-responsive">
           <p>[Pet Morning] fish toy</p>
           <br>
         </div>
+            <div class="col-sm-2">
+              <br>
+            </div>
         </div>
   </div>
       </div>
 
-
-    <div class="container-fluid text-center bg-3">
-      <h2>FEED</h2>
-      <br>
-      <div class="row">
-        <div class="col-sm-3">
-            <br>
-          <img src="feed/feed1.jpg" alt="Image" width="300" height="300" class="img-responsive">
-          <p>[Royal Canin] mini indoor adult</p>
-        </div>
-
-        <div class="col-sm-3">
-            <br>
-          <img src="feed/feed2.jpg" alt="Image" width="300" height="300" class="img-responsive">
-          <p>[Now] Grain Free small Breed Puppy DF</p>
-        </div>
-
-        <div class="col-sm-3">
-            <br>
-          <img src="feed/feed3.jpg" alt="Image" width="300" height="300" class="img-responsive">
-          <p>[Mango Bab] XXX</p>
-        </div>
-
-      <div class="col-sm-3">
-        <br>
-        <img src="feed/feed4.jpg" alt="Image" width="300" height="300" class="img-responsive">
-        <p>[Natural Core] bene M50</p>
-        <br>
-      </div>
-      </div>
-</div>
-    </div>
-
-
-    <div class="container-fluid text-center bg-4">
-      <h2>SNACKS</h2>
-      <br>
-      <div class="row">
-        <div class="col-sm-3">
-            <br>
-          <img src="snacks/snacks1.jpg" alt="snacks1" width="300" height="300" class="img-responsive">
-          <p>[Bow Wow] Lame Cheese Sand</p>
-        </div>
-
-        <div class="col-sm-3">
-            <br>
-          <img src="snacks/snacks2.jpg" alt="snacks2" width="300" height="300" class="img-responsive">
-          <p>[Mr Cook] Mr Cook salmon</p>
-        </div>
-
-        <div class="col-sm-3">
-            <br>
-          <img src="snacks/snacks3.jpg" alt="snacks3" width="300" height="300" class="img-responsive">
-          <p>[Gold Rony] Yes I'm real super Biotics cookie</p>
-        </div>
-
-      <div class="col-sm-3">
-        <br>
-        <img src="snacks/snacks4.jpg" alt="snacks4" width="300" height="300" class="img-responsive">
-        <p>[Happi Doggy] Zest Orange</p>
-        <br>
-      </div>
-      </div>
-</div>
-
-<div class="container-fluid text-center bg-5 ">
-  <h2>BEAUTY / BATH</h2>
-  <br>
-  <div class="row">
-    <div class="col-sm-3">
-        <br>
-      <img src="BB/BB1.jpg" alt="Beauty/bath1" width="300" height="300" class="img-responsive">
-      <p>[Puppy i] True Touch</p>
-    </div>
-
-    <div class="col-sm-3">
-        <br>
-      <img src="BB/BB2.jpg" alt="Beauty/bath2" width="300" height="300" class="img-responsive">
-      <p>[Earth Bath] Oatmeal&Aloe Conditioner</p>
-    </div>
-
-    <div class="col-sm-3">
-        <br>
-      <img src="BB/BB3.jpg" alt="Beauty/bath3" width="300" height="300" class="img-responsive">
-      <p>[ForCans] Baby Powder Shampoo</p>
-    </div>
-
-  <div class="col-sm-3">
-    <br>
-    <img src="BB/BB4.jpg" alt="Beauty/bath4" width="300" height="300" class="img-responsive">
-    <p>[Sinsegea] Cozy Clean</p>
-    <br>
-  </div>
-  </div>
-</div>
-
-
-<div class="container-fluid text-center bg-6 ">
-  <h2>TOY</h2>
-  <br>
-  <div class="row">
-    <div class="col-sm-3">
-        <br>
-      <img src="toy/toy1.jpg" alt="toy" width="300" height="300" class="img-responsive">
-      <p>[Pet Morning] BBQ toy</p>
-    </div>
-
-    <div class="col-sm-3">
-        <br>
-      <img src="toy/toy2.jpg" alt="toy" width="300" height="300" class="img-responsive">
-      <p>[Pet Morning] fish toy</p>
-    </div>
-
-    <div class="col-sm-3">
-        <br>
-      <img src="toy/toy3.jpg" alt="toy" width="300" height="300" class="img-responsive">
-      <p>[Best Ever] banana BBick</p>
-    </div>
-
-  <div class="col-sm-3">
-    <br>
-    <img src="toy/toy4.jpg" alt="toy" width="300" height="300" class="img-responsive">
-    <p>[Bite Me] Soda Toy</p>
-    <br>
-  </div>
-  </div>
-</div>
 
 <div class="container-fluid text-center bg-7">
   <div class="row">
