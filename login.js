@@ -62,9 +62,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       if(email_verified){
         document.getElementById("verify_btn").style.display="none";
+        document.getElementById("dog_btn").style.display="block";
+        document.getElementById("cat_btn").style.display="block";
       }
       else{
         document.getElementById("verify_btn").style.display="block";
+        document.getElementById("dog_btn").style.display="none";
+        document.getElementById("cat_btn").style.display="none";
       }
 
     }
