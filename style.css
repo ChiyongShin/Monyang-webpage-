@@ -94,15 +94,17 @@ padding-left:50px;
 
 
  .carousel-control.left {
-   background-image: none;
    color: #f4511e;
  }
 
  .carousel-control.right{
-   background-image: none;
    color: #f4511e;
  }
 
+.hhh{
+  font-size:35px;
+  color:#f4911e;
+}
 
 
 
