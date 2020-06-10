@@ -178,9 +178,9 @@ padding-left:50px;
 
 #fixedn{position:fixed;right:10px;bottom:35%;z-index:1000}
 
-#fixedbtn{position:fixed;right:39px;bottom:46%;z-index:1000}
+#fixedbtn{position:fixed;right:30px;bottom:48%;z-index:1000}
 
-#fixedbtn_2{position:fixed;right:39px;bottom:37%;z-index:1000}
+#fixedbtn_2{position:fixed;right:30px;bottom:38%;z-index:1000}
 
 
 
@@ -191,6 +191,10 @@ padding-left:50px;
     font-weight: bold;
 
   }
+
+.nSale_price{
+  font-size: 18px;
+}
 
   .Sale_price{
 
