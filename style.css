@@ -85,3 +85,17 @@ padding-left:50px;
 #fixedn{position:fixed;right:10px;bottom:35%;z-index:1000}
 #fixedbtn{position:fixed;right:59px;bottom:45%;z-index:1000}
 #fixedbtn_2{position:fixed;right:59px;bottom:35%;z-index:1000}
+
+
+  .Product{
+    font-weight: bold;
+  }
+  .Sale_price{
+    text-decoration:line-through;
+    font-size: 18px;
+  }
+
+  .Discount_price{
+    color:red;
+    font-size: 20px;
+  }
