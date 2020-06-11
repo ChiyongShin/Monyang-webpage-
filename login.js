@@ -12,6 +12,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+
+
 function signUp(){
   var userEmail=document.getElementById("email_field");
   var userPass=document.getElementById("password_field");
@@ -47,11 +49,16 @@ function login(){
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+
     document.getElementById("user_div").style.display="block";
     document.getElementById("login_div").style.display="none";
 
 
+
+
+
     var user=firebase.auth().currentUser;
+
 
     if(user!=null){
       var email_id=user.email;
@@ -64,6 +71,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("verify_btn").style.display="none";
         document.getElementById("dog_btn").style.display="block";
         document.getElementById("cat_btn").style.display="block";
+
+
       }
       else{
         document.getElementById("verify_btn").style.display="block";
