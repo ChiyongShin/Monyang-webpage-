@@ -54,7 +54,7 @@ padding-left:50px;
 
   color: #ffffff;
 
-  margin=0px;
+  margin: 0;
 
 }
 
@@ -159,13 +159,11 @@ padding-left:50px;
 }
 
 .bg-7{
+  padding: 0x;
 
-  font-size: 20px;
+  margin: 0;
 
-  background-color: RGB(85,85,85);
-
-  color: #FFFFFF;
-
+  margin-top: 50px;
 }
 
 .container-fluid{
