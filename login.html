@@ -9,27 +9,36 @@
       <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
       <script src="login.js"></script>
 
-        <div id="login_div" class="main-div">
-          <h3>Monyang</h3>
-          <input type="email" placeholder="Email...." id="email_field">
-          <input type="password" placeholder="Password...." id="password_field">
-          <button onclick="signUp()">회원가입</button>
-          <button onclick="login()">로그인</button>
+      <div class="left_div">
+        <img src="puppy.png" width=50% alt="">
+        <img src="kitty.png" height=10% alt="">
 
-        </div>
+      </div>
 
-        <div id="user_div" class="loggedin-div">
-          <h3>어서 오세요!!</h3>
-          <p id="user_para">Welcome to Monyang store. You're currently logged in!</p>
-          <button onclick="logout()">로그아웃</button>
-          <button id="verify_btn" onclick="send_verification()">이메일 인증</button>
-          <div class="prefer_div">
-            <p>어떤 펫을 위한 사이트를 보고 싶으신가요??</p>
-            <button id="dog_btn" onclick="location.href='monyang.html';">강아지</button>
-            <button id="cat_btn" onclikc="location.href='monyang.html';">고양이</button>
-          </div>
+<div class="right_div">
+  <div id="login_div" class="main-div">
+    <h3 id="login_title">Monyang 회원가입 / 로그인</h3>
+    <input type="email" placeholder="Email...." id="email_field">
+    <input type="password" placeholder="Password...." id="password_field">
+    <button onclick="signUp()">회원가입</button>
+    <button onclick="login()">로그인</button>
 
-        </div>
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+    <h3>어서 오세요!!</h3>
+    <p id="user_para">Welcome to Monyang store. You're currently logged in!</p>
+    <button onclick="logout()">로그아웃</button>
+    <button id="verify_btn" onclick="send_verification()">이메일 인증</button>
+    <div class="prefer_div">
+      <p>어떤 펫을 위한 사이트를 보고 싶으신가요??</p>
+      <button id="dog_btn" onclick="location.href='monyang_dog.html';">강아지</button>
+      <button id="cat_btn" onclikc="location.href='monyang_cat.html';">고양이</button>
+    </div>
+
+  </div>
+</div>
+
 
     </body>
 </html>

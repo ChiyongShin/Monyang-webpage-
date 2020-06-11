@@ -10,8 +10,8 @@ input,button{
 }
 
 .main-div, .loggedin-div{
-  width:20%;
-  margin: 0px auto;
+  width:40%;
+
   margin-top: 150px;
   padding:20px;
   display:none;
@@ -33,9 +33,9 @@ input,button{
 }
 
 .main-div button, .loggedin-div button{
-  background: #5d8ffc;
+  background: rgb(255,201,201);
   color: #fff;
-  border: 1px solid #5d8ffc;
+  border: 1px solid rgb(255,201,201);
   border-radius: 5px;
   padding: 15px;
   display: block;
@@ -48,7 +48,26 @@ input,button{
 
 .main-div button:hover, .loggedin-div button:hover{
   background: #fff;
-  color:#5d8ffc;
-  border:1px solid #5d8ffc;
+  color:rgb(255,201,201);
+  border:1px solid rgb(255,201,201);
   cursor: pointer;
+}
+
+#login_title{
+  color:rgb(255,225,136);
+}
+
+.left_div{
+  float:left;
+  text-align: right;
+  width:45%;
+display:block;
+
+}
+
+.right_div{
+
+  float:right;
+  width:54%;
+
 }
