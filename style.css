@@ -240,3 +240,8 @@ padding-left:50px;
 
   display:none;
 }
+
+#cart{
+  border:1px solid black;
+  display:none;
+}
