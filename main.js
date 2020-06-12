@@ -16,10 +16,10 @@ firebase.analytics();
 
 var db=firebase.firestore();
 var username;
-
+var usercnt=0;
 function storeData(item_name,price){
 
-    db.collection("items").add({
+    db.collection("items").doc(username+usercnt).set({
         name: item_name,
         price: price,
         userId: username
@@ -31,6 +31,18 @@ function storeData(item_name,price){
         console.error("Error writing document: ", error);
     });
     alert("장바구니에 추가했어요.");
+    usercnt++;
+    db.collection("users").doc(username).set({
+        name: username,
+        count: usercnt
+
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
 }
 
 
@@ -40,19 +52,19 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     document.getElementById("login_status").style.display="block";
     document.getElementById("sign_login").style.display="none";
-
+    username=user.email;
     db.collection("users")
-      .get()
-      .then(function(querySnapshot) {
-          querySnapshot.forEach(function(doc) {
-              // doc.data() is never undefined for query doc snapshots
-            username=doc.data().name;
-          });
-      })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
+    .get().then(function(querySnapshot){
+      querySnapshot.forEach(function(doc){
+
+        usercnt=doc.data().count;
+
       });
-        // ...
+    });
+
+
+
+
   } else {
     document.getElementById("login_status").style.display="none";
     document.getElementById("sign_login").style.display="block";
@@ -65,25 +77,34 @@ function showData(){
   const list__cart= document.querySelector("#list_cart");
   const total_price= document.querySelector("#total_price");
   var total=0;
-if(cart_cnt==0){
-  db.collection("items").where("userId", "==", username)
-  .get().then(function(querySnapshot){
-    querySnapshot.forEach(function(doc){
-      total+=doc.data().price;
-      list_cart.innerHTML +="<div class='col-sm-2'> <img src='"+doc.data().name+".jpg'  >"+doc.data().price+"원"+"</div>"
+  if(cart_cnt==0){
+    db.collection("items").where("userId", "==", username)
+    .get().then(function(querySnapshot){
+      querySnapshot.forEach(function(doc){
+        total+=doc.data().price;
+        list_cart.innerHTML +="<div class='col-sm-2'> <img src='"+doc.data().name+".jpg'  >"+doc.data().price+"원"+"</div>"
 
-    });total_price.innerHTML="<div><p id='tp'> 총 가격 : "+total+"원</p><div>"
-  });
+      });total_price.innerHTML="<div><p id='tp'> 총 가격 : "+total+"원</p><div>"
+    });
 
 
 
-  document.getElementById("payment_btn").style.display="block";
-  cart_cnt++;
+    document.getElementById("payment_btn").style.display="block";
+    cart_cnt++;
+  }
+  else{
+    alert("장바구니를 두 번 열수 없습니다.");
+  }
 }
-else{
-  alert("장바구니를 두 번 열수 없습니다.");
-}
 
+function delData(){
+  for(var i=0;i<160;i++){
+  db.collection("items").doc(username+i).delete().then(function() {
+    console.log("Document successfully deleted!");
+      }).catch(function(error) {
+        console.error("Error removing document: ", error);
+      });
+    }
 }
 
 function logout(){
@@ -91,151 +112,3 @@ function logout(){
   }).catch(function(error){
   });
 }
-
-
-/*
-var shopping_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var shopping_count=0;
-var list_shop=[0,0,0,0];
-*/
-
-
-/*
-function shopping_item(item_name){
-  var index;
-  var i,j,k=1,s,cnt=0;
-  /*
-  매개변수로 들어온 item_name과 배열에 등록된 상품이름과 비교하여
-  스위치문으로 index값 부여
-  BB -> feed -> snacks -> toy 순서
-  cat -> dog 순서
-  */
-/*
-    for(i=0;i<20;i++){
-        j=i%20+k;
-        s=i+20;
-      switch(item_name){
-        case 'BB/BB_images/cat_BB'+j:
-        index=i;
-        break;
-        case 'BB/BB_images/dog_BB'+j:
-        index=s;
-        break;
-      }
-  }
-  for(i=40;i<60;i++){
-    j=i%20+k;
-    s=i+20;
-    switch(item_name){
-      case 'feed/feed_images/cat_feed'+j:
-      index=i;
-      break;
-      case 'feed/feed_images/dog_feed'+j:
-      index=s;
-      break;
-    }
-  }
-  for(i=80;i<100;i++){
-    j=i%20+k;
-    s=i+20;
-    switch(item_name){
-      case 'snacks/snacks_images/cat_snacks'+j:
-      index=i;
-      break;
-      case 'snacks/snacks_images/dog_snacks'+j:
-      index=s;
-      break;
-    }
-  }
-  for(i=120;i<140;i++){
-    j=i%20+k;
-    s=i+20;
-    switch(item_name){
-      case 'toy/toy_images/cat_toy'+j:
-      index=i;
-      break;
-      case 'toy/toy_images/dog_toy'+j:
-      index=s;
-      break;
-    }
-  }
-
-  if(shopping_list[index]==0){
-    shopping_list[index]=shopping_count+1;
-
-    list_shop[shopping_count]=item_name;
-    shopping_count++;
-    alert("장바구니에 추가했습니다! 장바구니에 가서 확인!");
-
-
-
-  }
-  else if(shopping_list[index]==1){
-    alert("이미 선택하신 상품입니다.");
-  }
-  else if(shopping_count>4){
-    alert("장바구니가 꽉 찼습니다.");
-  }
-  alert(shopping_list);
-  createFile();
-}
-*/
-/*
-function shoppingcart(){
-  showFile();
-  var i=0;
-alert(shopping_list);
-  for(i=0;i<160;i++){
-
-
-    switch (shopping_list[i]) {
-      case 1:
-        document.getElementById("first_cart").src=list_shop[0]+".jpg";
-        break;
-        case 2:
-        document.getElementById("second_cart").src=list_shop[1]+".jpg";
-        break;
-        case 3:
-        document.getElementById("third_cart").src=list_shop[2]+".jpg";
-        break;
-        case 4:
-        document.getElementById("fourth_cart").src=list_shop[3]+".jpg";
-        break;
-
-
-    }
-
-  }
-  shopping_count=0;
-
-}
-
-function OpenTextFile(){
-  shopping_list.type="file";
-}
-
-/*
-function createFile(){
-
-  var fileObject= new ActiveXObject("Scripting.FileSystemObject");
-  fWrite=fileObject.CreateTextFile("C:\\write.txt",true);
-  fWrite.write(shopping_list);
-  fWrite.close();
-}
-
-function showFile(){
-  var fileName="C:\\write.txt";
-  var fileObject= new ActiveXObject("Scripting.FileSystemObject");
-  if(!fileObject.FileExist(fileName)){
-    alert("만들어진 파일이 없습니다.");
-  }
-  else{
-    var fOpen=fileObject.OpenTextFile(fileName,1);
-    while(!fOpen,AtEndOfStream){
-      shopping_list=fOpen.Readline();
-    }
-    fOpen.close();
-  }
-}
-*/
