@@ -105,6 +105,18 @@ function delData(){
         console.error("Error removing document: ", error);
       });
     }
+    usercnt=0;
+    db.collection("users").doc(username).set({
+        name: username,
+        count: usercnt
+
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
 }
 
 function logout(){
