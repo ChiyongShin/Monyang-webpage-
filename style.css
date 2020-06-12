@@ -329,3 +329,7 @@ dl dt{
   -moz-transition:0.3s;
   margin-bottom: 20px;
 }
+
+.list-item{
+  display:inline;
+}
