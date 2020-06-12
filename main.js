@@ -103,6 +103,8 @@ function showData(){
 }
 
 function delData(){
+  const list__cart= document.querySelector("#list_cart");
+  const total_price= document.querySelector("#total_price");
   for(var i=0;i<160;i++){
   db.collection("items").doc(username+i).delete().then(function() {
     console.log("Document successfully deleted!");
@@ -122,6 +124,9 @@ function delData(){
     .catch(function(error) {
         console.error("Error writing document: ", error);
     });
+    total=0;
+    list_cart.innerHTML ="<div class='col-sm-2'> <img src='' ></div>"
+    total_price.innerHTML="<div><p id='tp'> 총 가격 : "+total+"원</p><div>"
 }
 
 function logout(){
