@@ -349,8 +349,7 @@ dl dt{
   border:1px solid rgb(255,201,201);
   cursor: pointer;
 }
-
-.list-item{
+#list_cart{
   display:inline;
 }
 .more_btn{
@@ -360,4 +359,10 @@ dl dt{
   border-radius: 15px;
   padding-left:15px;
   padding-right:15px;
+}
+
+#tp{
+  font-size: 24px;
+  text-align: center;
+  border:1px solid rgb(255,201,201);
 }

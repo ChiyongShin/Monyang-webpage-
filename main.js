@@ -17,10 +17,11 @@ firebase.analytics();
 var db=firebase.firestore();
 
 
-function storeData(item_name){
+function storeData(item_name,price){
 
     db.collection("items").add({
         name: item_name,
+        price: price,
         userId: username
     })
     .then(function() {
@@ -57,14 +58,30 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+var a=0;
 function showData(){
   const list__cart= document.querySelector("#list_cart");
+  const total_price= document.querySelector("#total_price");
+  var total=0;
+
   db.collection("items").where("userId", "==", username)
   .get().then(function(querySnapshot){
     querySnapshot.forEach(function(doc){
       list_cart.innerHTML +="<div class='list-item'> <img src='"+doc.data().name+".jpg'  ></div>"
+      list_cart.innerHTML +="<div class='list-money'> <p class='mm'>"+doc.data().price+"</p> </div>"
+
     });
-  })
+  });
+  db.collection("items")
+  .get().then(function(querySnapshot){
+    querySnapshot.forEach(function(doc){
+      a=parseInt(doc.data().price);
+      total+=a;
+
+    });total_price.innerHTML="<div id='tp'><p> 총 가격 : "+total+"</p></div>"
+  });
+
+
   document.getElementById("payment_btn").style.display="block";
 }
 
