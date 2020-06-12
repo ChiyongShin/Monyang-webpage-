@@ -15,6 +15,8 @@ firebase.analytics();
 var shopping_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var shopping_count=0;
+var list_shop=[0,0,0,0];
+
 
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -98,8 +100,14 @@ function shopping_item(item_name){
   }
 
   if(shopping_list[index]==0){
-    shopping_list[index]=1;
+    shopping_list[index]=shopping_count+1;
+
+    list_shop[shopping_count]=item_name;
     shopping_count++;
+    alert("장바구니에 추가했습니다! 장바구니에 가서 확인!");
+
+
+
   }
   else if(shopping_list[index]==1){
     alert("이미 선택하신 상품입니다.");
@@ -107,8 +115,58 @@ function shopping_item(item_name){
   else if(shopping_count>4){
     alert("장바구니가 꽉 찼습니다.");
   }
+  alert(shopping_list);
+  createFile();
 }
 
 function shoppingcart(){
-  
+  showFile();
+  var i=0;
+alert(shopping_list);
+  for(i=0;i<160;i++){
+
+
+    switch (shopping_list[i]) {
+      case 1:
+        document.getElementById("first_cart").src=list_shop[0]+".jpg";
+        break;
+        case 2:
+        document.getElementById("second_cart").src=list_shop[1]+".jpg";
+        break;
+        case 3:
+        document.getElementById("third_cart").src=list_shop[2]+".jpg";
+        break;
+        case 4:
+        document.getElementById("fourth_cart").src=list_shop[3]+".jpg";
+        break;
+
+
+    }
+
+  }
+  shopping_count=0;
+
+}
+
+function createFile(){
+
+  var fileObject= new ActiveXObject("Scripting.FileSystemObject");
+  fWrite=fileObject.CreateTextFile("C:\\write.txt",true);
+  fWrite.write(shopping_list);
+  fWrite.close();
+}
+
+function showFile(){
+  var fileName="C:\\write.txt";
+  var fileObject= new ActiveXObject("Scripting.FileSystemObject");
+  if(!fileObject.FileExist(fileName)){
+    alert("만들어진 파일이 없습니다.");
+  }
+  else{
+    var fOpen=fileObject.OpenTextFile(fileName,1);
+    while(!fOpen,AtEndOfStream){
+      shopping_list=fOpen.Readline();
+    }
+    fOpen.close();
+  }
 }
