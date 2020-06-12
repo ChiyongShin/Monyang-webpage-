@@ -94,7 +94,7 @@ function showData(){
 
 
 
-    document.getElementById("payment_btn").style.display="block";
+    document.getElementById("credit_btn").style.display="block";
     cart_cnt++;
   }
   else{
