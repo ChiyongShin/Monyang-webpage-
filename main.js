@@ -15,7 +15,7 @@ firebase.analytics();
 
 
 var db=firebase.firestore();
-
+var username;
 
 function storeData(item_name,price){
 
@@ -32,7 +32,7 @@ function storeData(item_name,price){
     });
 }
 
-var username;
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -58,31 +58,30 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-var a=0;
+var cart_cnt=0;
 function showData(){
   const list__cart= document.querySelector("#list_cart");
   const total_price= document.querySelector("#total_price");
   var total=0;
-
+if(cart_cnt==0){
   db.collection("items").where("userId", "==", username)
   .get().then(function(querySnapshot){
     querySnapshot.forEach(function(doc){
-      list_cart.innerHTML +="<div class='list-item'> <img src='"+doc.data().name+".jpg'  ></div>"
-      list_cart.innerHTML +="<div class='list-money'> <p class='mm'>"+doc.data().price+"</p> </div>"
+      total+=doc.data().price;
+      list_cart.innerHTML +="<div class='col-sm-2'> <img src='"+doc.data().name+".jpg'  >"+doc.data().price+"원"+"</div>"
 
-    });
+    });total_price.innerHTML="<div><p id='tp'> 총 가격 : "+total+"원</p><div>"
   });
-  db.collection("items")
-  .get().then(function(querySnapshot){
-    querySnapshot.forEach(function(doc){
-      a=parseInt(doc.data().price);
-      total+=a;
 
-    });total_price.innerHTML="<div id='tp'><p> 총 가격 : "+total+"</p></div>"
-  });
 
 
   document.getElementById("payment_btn").style.display="block";
+  cart_cnt++;
+}
+else{
+  alert("장바구니를 두 번 열수 없습니다.");
+}
+
 }
 
 function logout(){

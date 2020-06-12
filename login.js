@@ -24,7 +24,7 @@ function signUp(){
   var auth=firebase.auth();
 
   db.collection("users").add({
-      name: userEmail
+      name: user.email
   })
   .then(function() {
       console.log("Document successfully written!");
@@ -48,7 +48,15 @@ function login(){
   var userEmail=document.getElementById("email_field").value;
   var userPass=document.getElementById("password_field").value;
 
-
+  db.collection("users").add({
+      name: user.email
+  })
+  .then(function() {
+      console.log("Document successfully written!");
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
 
 
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
