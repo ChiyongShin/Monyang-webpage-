@@ -65,6 +65,7 @@ function showData(){
       list_cart.innerHTML +="<div class='list-item'> <img src='"+doc.data().name+".jpg'  ></div>"
     });
   })
+  document.getElementById("payment_btn").style.display="block";
 }
 
 function logout(){
