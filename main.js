@@ -99,43 +99,16 @@ function shopping_item(item_name){
 
   if(shopping_list[index]==0){
     shopping_list[index]=1;
-    document.getElementById("cart").style.display="block";
     shopping_count++;
-    switch (shopping_count) {
-      case 1:
-      //item_name에 해당하는 문자열을 넣는다.
-        document.getElementById("first_cart").src= item_name + ".jpg"
-        alert("장바구니에 추가되었습니다!");
-        break;
-        case 2:
-        document.getElementById("second_cart").src= item_name + ".jpg"
-        alert("장바구니에 추가되었습니다!");
-        break;
-        case 3:
-        document.getElementById("third_cart").src= item_name + ".jpg"
-        alert("장바구니에 추가되었습니다!");
-        break;
-        case 4:
-        document.getElementById("fourth_cart").src= item_name + ".jpg"
-        alert("장바구니에 추가되었습니다!");
-        break;
-        default:
-        alert("5개 이상의 상품을 담을 수 없습니다.");
-        break;
-
-
-    }
   }
   else if(shopping_list[index]==1){
     alert("이미 선택하신 상품입니다.");
   }
-}
-/*
-function shoppingcart(){
-  var i=0;
-  for(i=0;i<160;i++){
-    if(shopping_list[i]==1){
-      document.getElementById("cart");
-    }
+  else if(shopping_count>4){
+    alert("장바구니가 꽉 찼습니다.");
   }
-}*/
+}
+
+function shoppingcart(){
+  
+}

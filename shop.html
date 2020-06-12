@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>monyang</title>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+  <script src="main.js"> </script>
+</head>
+
+  <body>
+    <img src="nimage2.png" id="fixedn">
+    <img src="nbtnd2.png" id="fixedbtn" onclick="location.href='monyang_dog.html'">
+    <img src="nbtnc2.png" id="fixedbtn_2" onclick="location.href='monyang_cat.html'">
+    <div class="container-fluid monyang">
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <img src="puppy.png" height=100 class="img-rounded responsive" alt="">
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <img src="monyang_logo.jpg" alt="monyanglogo" width=80% height=80% class="img-rounded responsive" onclick="location.href='monyang_dog.html';">
+        </div>
+
+        <div class="col-sm-4">
+          <nav class="navbar1">
+              <div class="collapse navbar-collapse">
+                <ul class="nav navbar1-nav navbar-right">
+                  <li> <button class="login_status_btn" id="login_status" onclick="logout();">로그아웃</li>
+
+                  <li> <button class="login_status_btn" id="sign_login" onclick="location.href='login.html';">SignUp♥Login</a></li>
+                </ul>
+              </div>
+              </nav>
+            </div>
+        </div>
+      </div>
+  </div>
+
+    <nav class="navbar navbar-default">
+      <div class="container text-center">
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-center">
+
+            <li><a href="best/best.html">Best</a></li>
+
+            <li><a href="feed/feed.html">Feed</a></li>
+
+            <li><a href="snacks/snacks.html">Snacks</a></li>
+
+            <li><a href="BB/BB.html">Beauty/Bath</a></li>
+
+            <li><a href="toy/toy.html">Toy</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid text-center bg-2">
+      <p>장바구니</p>
+
+      <div class="col-sm-2">
+        <img src="" id="first_cart" alt="">
+
+      </div>
+      <div class="col-sm-2">
+        <img src="" id="second_cart" alt="">
+      </div>
+      <div class="col-sm-2">
+        <img src="" id="third_cart" alt="">
+
+      </div>
+      <div class="col-sm-2">
+        <img src="" id="fourth_cart" >
+      </div>
+
+
+
+    </div>
+    <button id="payment_btn" onclick="">결제하기</button>
+
+
+
+    </body>
+</html>
