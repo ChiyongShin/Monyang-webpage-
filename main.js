@@ -60,6 +60,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 var cart_cnt=0;
+
 function showData(){
   const list__cart= document.querySelector("#list_cart");
   const total_price= document.querySelector("#total_price");

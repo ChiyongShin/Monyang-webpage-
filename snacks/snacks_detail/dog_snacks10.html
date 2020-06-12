@@ -28,6 +28,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
   <script src="../../main.js"> </script>
 
 
@@ -155,7 +156,7 @@
           </dl>
         </div>
         <hr>
-        <input type="button" id="list_cart_btn" name="장바구니" value="장바구니에 추가" onclick="shopping_item('feed/feed_images/dog_feed1');">
+        <input type="button" id="list_cart_btn" name="장바구니" value="장바구니에 추가" onclick="storeData('snacks/snacks_images/dog_snacks10',5900);" >
         <input type="button" id="list_purchase_btn" name="구매하기" value="구매하기" onclick="location.href='../../shop.html';">
       </div>
     </div>
