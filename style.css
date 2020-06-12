@@ -166,13 +166,11 @@ padding-left:50px;
   margin-top: 50px;
 }
 
-.container-fluid{
-
-  padding-top: 70px;
-
-  padding-bottom: 70px;
-
+.container-fluid {
+  padding-top:60px;
+  padding-bottom:20px;
 }
+
 
 
 
