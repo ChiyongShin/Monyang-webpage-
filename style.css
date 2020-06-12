@@ -329,23 +329,25 @@ dl dt{
   margin-bottom: 20px;
 }
 #payment_btn{
-
   margin-left: auto;
   margin-right: auto;
-
   background: #fff;
-
   border: 2px solid rgb(255,201,201);
   border-radius: 5px;
   padding: 15px;
   display: none;
   width:10%;
   font-size: 16px;
-
   transition: 0.3s;
   -webkit-transition:0.3s;
   -moz-transition:0.3s;
   margin-bottom: 20px;
+}
+#cart_btn:hover, #payment_btn:hover{
+  background: rgb(255,201,201);
+  color:#fff;
+  border:1px solid rgb(255,201,201);
+  cursor: pointer;
 }
 
 .list-item{
