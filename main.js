@@ -30,6 +30,7 @@ function storeData(item_name,price){
     .catch(function(error) {
         console.error("Error writing document: ", error);
     });
+    alert("장바구니에 추가했어요.");
 }
 
 
