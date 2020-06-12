@@ -17,44 +17,10 @@ firebase.analytics();
 var db=firebase.firestore();
 
 
-function storeData(){
-
-  // Add a new document in collection "cities"
-    db.collection("items").add({
-        name: "dog_snas",
-        status: 0,
-        userId: 1
-    })
-    .then(function() {
-        console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });
-
-}
-
-function modData(item_name){
-  // Add a new document in collection "cities"
-db.collection("items").set({
-    name: "Los Angeles",
-    state: "AA",
-    country: "USA"
-})
-.then(function() {
-    console.log("Document successfully written!");
-})
-.catch(function(error) {
-    console.error("Error writing document: ", error);
-});
-}
-
-function compData(){
-
+function storeData(item_name){
 
     db.collection("items").add({
-        name: "dog_snas",
-        status: 0,
+        name: item_name,
         userId: username
     })
     .then(function() {
@@ -72,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     document.getElementById("login_status").style.display="block";
     document.getElementById("sign_login").style.display="none";
-    
+
     db.collection("users")
       .get()
       .then(function(querySnapshot) {
@@ -91,27 +57,32 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+function showData(){
+  const list__cart= document.querySelector("#list_cart");
+  db.collection("items").where("userId", "==", username)
+  .get().then(function(querySnapshot){
+    querySnapshot.forEach(function(doc){
+      list_cart.innerHTML +="<div class='list-item'> <img src='"+doc.data().name+".jpg'  ></div>"
+    });
+  })
+}
+
+function logout(){
+  firebase.auth().signOut().then(function() {
+  }).catch(function(error){
+  });
+}
 
 
-
+/*
 var shopping_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var shopping_count=0;
 var list_shop=[0,0,0,0];
+*/
 
 
-
-
-
-function logout(){
-  firebase.auth().signOut().then(function() {
-
-  }).catch(function(error){
-
-  });
-
-}
-
+/*
 function shopping_item(item_name){
   var index;
   var i,j,k=1,s,cnt=0;
@@ -121,7 +92,7 @@ function shopping_item(item_name){
   BB -> feed -> snacks -> toy 순서
   cat -> dog 순서
   */
-
+/*
     for(i=0;i<20;i++){
         j=i%20+k;
         s=i+20;
@@ -190,7 +161,8 @@ function shopping_item(item_name){
   alert(shopping_list);
   createFile();
 }
-
+*/
+/*
 function shoppingcart(){
   showFile();
   var i=0;
