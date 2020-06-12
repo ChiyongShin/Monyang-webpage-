@@ -241,10 +241,7 @@ padding-left:50px;
   display:none;
 }
 
-#cart{
-  border:1px solid black;
-  display:none;
-}
+
 
 .show_product{
   width:100%;
@@ -310,4 +307,26 @@ dl dt{
   font-size: 10px;
   text-align: left;
   margin-left: 200px;
+}
+
+
+
+#payment_btn{
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgb(255,201,201);
+  color: #fff;
+  border: 1px solid rgb(255,201,201);
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width:10%;
+  font-size: 16px;
+
+  transition: 0.3s;
+  -webkit-transition:0.3s;
+  -moz-transition:0.3s;
+  margin-bottom: 20px;
 }
