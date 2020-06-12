@@ -12,6 +12,88 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+
+
+var db=firebase.firestore();
+
+
+function storeData(){
+
+  // Add a new document in collection "cities"
+    db.collection("items").add({
+        name: "dog_snas",
+        status: 0,
+        userId: 1
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+
+}
+
+function modData(item_name){
+  // Add a new document in collection "cities"
+db.collection("items").set({
+    name: "Los Angeles",
+    state: "AA",
+    country: "USA"
+})
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+}
+
+function compData(){
+
+
+    db.collection("items").add({
+        name: "dog_snas",
+        status: 0,
+        userId: username
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+}
+
+var username;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+    document.getElementById("login_status").style.display="block";
+    document.getElementById("sign_login").style.display="none";
+    
+    db.collection("users")
+      .get()
+      .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+              // doc.data() is never undefined for query doc snapshots
+            username=doc.data().name;
+          });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
+        // ...
+  } else {
+    document.getElementById("login_status").style.display="none";
+    document.getElementById("sign_login").style.display="block";
+  }
+});
+
+
+
+
 var shopping_list=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var shopping_count=0;
@@ -19,17 +101,7 @@ var list_shop=[0,0,0,0];
 
 
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    document.getElementById("login_status").style.display="block";
-    document.getElementById("sign_login").style.display="none";
-        // ...
-  } else {
-    document.getElementById("login_status").style.display="none";
-    document.getElementById("sign_login").style.display="block";
-  }
-});
+
 
 function logout(){
   firebase.auth().signOut().then(function() {
@@ -148,6 +220,11 @@ alert(shopping_list);
 
 }
 
+function OpenTextFile(){
+  shopping_list.type="file";
+}
+
+/*
 function createFile(){
 
   var fileObject= new ActiveXObject("Scripting.FileSystemObject");
@@ -170,3 +247,4 @@ function showFile(){
     fOpen.close();
   }
 }
+*/

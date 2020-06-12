@@ -12,15 +12,29 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+var db=firebase.firestore();
+
+
 
 
 function signUp(){
-  var userEmail=document.getElementById("email_field");
-  var userPass=document.getElementById("password_field");
+  var userEmail=document.getElementById("email_field").value;
+  var userPass=document.getElementById("password_field").value;
 
   var auth=firebase.auth();
 
-  auth.createUserWithEmailAndPassword(userEmail.value, userPass.value).catch(function(error) {
+  db.collection("users").add({
+      name: userEmail
+  })
+  .then(function() {
+      console.log("Document successfully written!");
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
+
+
+  auth.createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -33,6 +47,9 @@ alert("Signed Up");
 function login(){
   var userEmail=document.getElementById("email_field").value;
   var userPass=document.getElementById("password_field").value;
+
+
+
 
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
   // Handle Errors here.
