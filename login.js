@@ -22,24 +22,14 @@ function signUp(){
   var userPass=document.getElementById("password_field").value;
 
   var auth=firebase.auth();
-
-  db.collection("users").add({
-      name: user.email
-  })
-  .then(function() {
-      console.log("Document successfully written!");
-  })
-  .catch(function(error) {
-      console.error("Error writing document: ", error);
-  });
-
-
   auth.createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
   });
+
+
   // ...
 alert("Signed Up");
 }
@@ -48,15 +38,7 @@ function login(){
   var userEmail=document.getElementById("email_field").value;
   var userPass=document.getElementById("password_field").value;
 
-  db.collection("users").add({
-      name: user.email
-  })
-  .then(function() {
-      console.log("Document successfully written!");
-  })
-  .catch(function(error) {
-      console.error("Error writing document: ", error);
-  });
+
 
 
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
@@ -68,7 +50,6 @@ function login(){
   // ...
 });
 
-
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -78,7 +59,15 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("user_div").style.display="block";
     document.getElementById("login_div").style.display="none";
 
-
+    db.collection("users").add({
+        name: user.email
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
 
 
 
