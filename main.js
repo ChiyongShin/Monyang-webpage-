@@ -61,12 +61,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       });
     });
-    if(user!=null){
-      var email_id=user.email;
-      var email_verified= user.emailVerified;
 
-      document.getElementById("us").innerHTML="Welcome : " + email_id +"<br/> Verified : "+email_verified;
-}
 
 
 
@@ -94,7 +89,7 @@ function showData(){
 
 
 
-    document.getElementById("payment_btn").style.display="block";
+    document.getElementById("credit_btn").style.display="block";
     cart_cnt++;
   }
   else{
