@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+
+
+<head>
+
+  <title>monyang</title>
+
+  <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../style.css">
+
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+  <script src="../../main.js"> </script>
+
+
+
+</head>
+
+
+
+  <body>
+
+    <img src="../../nimage2.png" id="fixedn">
+
+    <img src="../../nbtnd2.png" id="fixedbtn" onclick="location.href='../../monyang_dog.html'">
+
+    <img src="../../nbtnc2.png" id="fixedbtn_2" onclick="location.href='../../monyang_cat.html'">
+
+
+
+
+
+  <div class="container-fluid monyang">
+
+      <div class="row">
+
+        <div class="col-sm-4 text-center">
+          <img src="../../puppy.png" height=100 class="img-rounded responsive" alt="">
+
+
+        </div>
+
+        <div class="col-sm-4 text-center">
+
+          <img src="../../monyang_logo.jpg" alt="monyanglogo" width=80% height=80% class="img-rounded responsive" onclick="location.href='../../monyang_dog.html';">
+
+        </div>
+
+        <div class="col-sm-4">
+
+          <nav class="navbar1">
+
+              <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar1-nav navbar-right">
+                  <li> <button class="login_status_btn" id="login_status" onclick="logout();">로그아웃</li>
+
+                  <li> <button class="login_status_btn" id="sign_login" onclick="location.href='../../login.html';">SignUp♥Login</a></li>
+
+
+                </ul>
+
+              </div>
+
+              </nav>
+
+            </div>
+
+        </div>
+
+      </div>
+
+
+  <nav class="navbar navbar-default">
+
+      <div class="container text-center">
+
+        <div class="collapse navbar-collapse">
+
+          <ul class="nav navbar-nav navbar-center">
+
+            <li><a href="../../best/best.html">Best</a></li>
+
+            <li><a href="../../feed/feed.html">Feed</a></li>
+
+            <li><a href="../snacks.html">Snacks</a></li>
+
+            <li><a href="../../BB/BB.html">Beauty/Bath</a></li>
+
+            <li><a href="../../toy/toy.html">Toy</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+  </nav>
+
+
+  <div class="container-fluid text-center bg-1" >
+    <div class="show_product">
+      <div class="image_product">
+        <img src="../snacks_images/dog_snacks2.jpg" width=100% height=100% >
+      </div>
+      <div class="purchase_product">
+        <h3><strong>바우와우 치즈볼 100g</strong></h3>
+        <input type="button" id="mark" value="강아지전용">
+        <hr>
+        <div class="list">
+          <dl>
+            <dt>정가</dt>
+            <dd>
+              <del>
+                <span>3,000</span>
+                원
+              </del>
+            </dd>
+          </dl>
+          <dl class="item_price">
+            <dt>
+              판매가
+            </dt>
+            <input type="button" id="sale_mark" value="36%">
+            <dd>
+              <strong>
+                <strong>1,900</strong>
+              </strong>
+              원
+            </dd>
+          </dl>
+          <dl class="item_delivery">
+            <dt>배송비</dt>
+            <dd>
+              <strong>2,500원 / 주문시결제(선결제)</strong>
+            </dd>
+          </dl>
+        </div>
+        <hr>
+        <input type="button" id="list_cart_btn" name="장바구니" value="장바구니에 추가" onclick="shopping_item('feed/feed_images/dog_feed1');">
+        <input type="button" id="list_purchase_btn" name="구매하기" value="구매하기" onclick="location.href='../../shop.html';">
+      </div>
+    </div>
+    <hr>
+    <div class="text_product">
+      <img src="../snacks_detail/dog2_1.png" width=70% height=70% >
+      <img src="../snacks_detail/dog2_2.png" width=70% height=70% >
+      <img src="../snacks_detail/dog2_3.png" width=70% height=70% >
+      <br>
+      <br>
+      <img src="../snacks_detail/dog2_4.png" width=73% height=80% >
+      <br>
+      <br>
+      <br>
+      <div id="product_detail">
+        <h4>배송안내</h4>
+        <p>- 배송비 : 기본배송료는 2,500원 입니다. (도서,산간,오지 일부지역은 배송비가 추가될 수 있습니다)
+        40,000원 이상 구매시 무료배송입니다.</p>
+        <p>- 본 상품의 평균 배송일은 2일입니다.(입금 확인 후) 설치 상품의 경우 다소 늦어질수 있습니다.</p>
+        <p>  [배송예정일은 주문시점(주문순서)에 따른 유동성이 발생하므로 평균 배송일과는 차이가 발생할 수 있습니다.</p>
+        <br>
+        <br>
+        <br>
+        <h4>교환 및 반품 안내</h4>
+        <p>- 취소/반품/교환/환불은 배송 완료 후 7일 이내에 가능합니다.</p>
+        <p>- 상품 하자 및 오배송의 경우 수령일자로부터 7일 이내에 보내주셔야 모냥 부담으로 교환/반품이 가능합니다.</p>
+        <p>- 교환/반품 물건을 보내실 때는 반드시 상담원과 통화 후 CJ대한통운으로 보내주시기 바랍니다.</p>
+        <p>- 교환 및 반품 시에는 배송된 포장박스와 포장재를 사용하고 사은품을 포함하여 처음과 같이 안전하게 보내주시기 바랍니다. </p>
+        <p>- 단순 변심 및 사이즈 관련에 의한 교환 및 반품은 미사용 제품에 한하며, 배송비는 고객님 부담입니다.</p>
+        <p>   └ 교환 시 : 반송비 + 재배송비 = 5,000원</p>
+        <p>   └ 반품 시 : 초기 배송비(무료배송 포함) + 반송비 = 5,000원 (상품에 따라 최대 15,000원 추가 발생)</p>
+        <br>
+        <br>
+        <br>
+        <h4>환불안내</h4>
+        <p>- 상품 청약철회 가능기간은 상품 수령일로 부터 7일 이내 입니다.</p>
+        <br>
+        <br>
+        <br>
+        <h4>AS안내</h4>
+        <p>- 소비자분쟁해결 기준(공정거래위원회 고시)에 따라 피해를 보상받을 수 있습니다.</p>
+        <p>- A/S는 판매자에게 문의하시기 바랍니다.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="content text-center bg-7">
+  <img src="../../footer.png" alt="footer" width=100% height=100% >
+</div>
+
+</body>
+
+</html>
