@@ -15,28 +15,33 @@
      <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
      <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
-     <script src="main.js"> </script>
+    <script src="../main.js"> </script>
 
 </head>
 
 <body>
-  <img src="../nbtnd2.png" id="fixedbtn">
-  <img src="../nbtnc2.png" id="fixedbtn_2">
+  <img src="../nbtnd2.png" id="fixedbtn" onclick="location.href='../monyang_dog.html'">
+
+  <img src="../nbtnc2.png" id="fixedbtn_2" onclick="location.href='../monyang_cat.html'">
 
 
   <div class="container-fluid monyang">
     <div class="row">
         <div class="col-sm-4 text-center">
 
+          <img src="../mdog.jpg" height=150 class="img-rounded responsive" alt="">
+
         </div>
         <div class="col-sm-4 text-center">
-          <img src="../monyang_logo.jpg" alt="monyanglogo" width=80% height=80% class="img-rounded responsive" onclick="location.href='../monyang.html';">
+          <img src="../monyang_logo.jpg" alt="monyanglogo" width=80% height=80% class="img-rounded responsive" onclick="location.href='../monyang_dog.html';">
         </div>
         <div class="col-sm-4">
           <nav class="navbar1">
               <div class="collapse navbar-collapse">
                 <ul class="nav navbar1-nav navbar-right">
-                  <li><a href="../login.html">SignUp♥Login</a></li>
+                  <li> <button class="login_status_btn" id="login_status" onclick="logout();">Logout</li>
+
+                  <li> <button class="login_status_btn" id="sign_login" onclick="location.href='../login.html';">SignUp♥Login</li>
                 </ul>
               </div>
               </nav>
