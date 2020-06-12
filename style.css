@@ -306,6 +306,9 @@ dl dt{
   margin-left: 200px;
 }
 
+.btnbtn{
+  text-align: center;
+}
 
 #cart_btn{
   margin-left: auto;
@@ -314,7 +317,8 @@ dl dt{
   border: 2px solid rgb(255,201,201);
   border-radius: 5px;
   padding: 15px;
-  display: block;
+  text-align: center;
+  display: inline;
   width:10%;
   font-size: 16px;
   transition: 0.3s;
@@ -345,7 +349,7 @@ dl dt{
   border-radius: 5px;
   padding: 15px;
   color:#fff;
-  display: block;
+  display: inline;
   width:10%;
   font-size: 16px;
   transition: 0.3s;
