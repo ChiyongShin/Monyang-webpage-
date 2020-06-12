@@ -59,8 +59,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("user_div").style.display="block";
     document.getElementById("login_div").style.display="none";
 
-    db.collection("users").add({
-        name: user.email
+    db.collection("users").doc(user.email).set({
+        name: user.email,
+        count: 0
     })
     .then(function() {
         console.log("Document successfully written!");
