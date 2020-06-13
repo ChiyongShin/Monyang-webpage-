@@ -84,7 +84,7 @@ function showData(){
         total+=doc.data().price;
         list_cart.innerHTML +="<div class='col-sm-2'> <img src='"+doc.data().name+".jpg'  >"+doc.data().price+"원"+"</div>"
 
-      });total_price.innerHTML="<div><p id='tp'> 총 가격 : "+total+"원</p><div>"
+      });total_price.innerHTML="<div><p id='tp'> 총 제품 가격 : "+total+"원</p> <p id='tp'> 배송비 : 2500원</p><div>"
     });
 
 
