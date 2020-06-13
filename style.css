@@ -277,7 +277,7 @@ dl dt{
 }
 
 
-#cart_btn{
+#cart_btn, #payment_btn{
 
   margin-left: auto;
   margin-right: auto;
@@ -296,7 +296,7 @@ dl dt{
   -moz-transition:0.3s;
   margin-bottom: 20px;
 }
-#payment_btn{
+#credit_btn{
   margin-left: auto;
   margin-right: auto;
   background: #fff;
@@ -311,7 +311,7 @@ dl dt{
   -moz-transition:0.3s;
   margin-bottom: 20px;
 }
-#cart_btn:hover, #payment_btn:hover{
+#cart_btn:hover, #credit_btn:hover{
   background: rgb(255,201,201);
   color:#fff;
   border:1px solid rgb(255,201,201);
@@ -328,4 +328,49 @@ dl dt{
   border-radius: 15px;
   padding-left:15px;
   padding-right:15px;
+}
+
+.loading{
+  text-align: center;
+  font-size: 40px;
+}
+
+.payment_field{
+  text-align: center;
+  font-size: 24px;
+}
+.payment_field input{
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  border:1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  padding:15px;
+  outline:none;
+  width:20%;
+  font-size: 16px;
+  margin-bottom: 20px;
+
+}
+#total_price{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#tp{
+  display:inline;
+  font-size: 24px;
+  text-align: center;
+  border:2px solid rgb(255,201,201);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+#card_info_title{
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
