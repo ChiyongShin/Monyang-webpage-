@@ -240,6 +240,22 @@ padding-left:50px;
   background-color: skyblue;
   font-weight: bold;
 }
+#mark_cat{
+  color:black;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:  #acf49e;
+  background-color: #acf49e;
+  font-weight: bold;
+}
+#mark_both{
+  color:black;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:  #f8c0aa;
+  background-color: #f8c0aa;
+  font-weight: bold;
+}
 #sale_mark{
   color:black;
   border-style: solid;
