@@ -1,12 +1,12 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyCK5rFqPURPNPrbEOU0cvpSd5f0s6IBt3Y",
-  authDomain: "monyang-8820b.firebaseapp.com",
-  databaseURL: "https://monyang-8820b.firebaseio.com",
-  projectId: "monyang-8820b",
-  storageBucket: "monyang-8820b.appspot.com",
-  messagingSenderId: "317483662694",
-  appId: "1:317483662694:web:0d28f12a65b7d3335f5ca7",
-  measurementId: "G-Q3D42JT7QS"
+  apiKey: "AIzaSyAR15-moVDC3IOe1-RlR1kPvX-aiVQ9mOg",
+  authDomain: "monyang-project.firebaseapp.com",
+  databaseURL: "https://monyang-project.firebaseio.com",
+  projectId: "monyang-project",
+  storageBucket: "monyang-project.appspot.com",
+  messagingSenderId: "654134927505",
+  appId: "1:654134927505:web:9dc79a84cf0b8c35339f30",
+  measurementId: "G-2JGEF8XEPL"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
