@@ -26,6 +26,8 @@ input,button{
   border-radius: 5px;
   background: #fff;
   padding:15px;
+  padding-left: 0px;
+  padding-right: 0px;
   outline:none;
   width:100%;
   margin-bottom: 20px;
@@ -61,7 +63,8 @@ input,button{
   float:left;
   text-align: right;
   width:45%;
-display:block;
+  padding-top: 195px;
+  display:block;
 
 }
 
