@@ -345,6 +345,15 @@ dl dt{
   padding-left:15px;
   padding-right:15px;
 }
+.chart_btn{
+  margin-left: 0;
+  background-color: #f4911e;
+  border:2px solid #f4911e;
+  border-radius: 15px;
+  padding-left:15px;
+  padding-right:15px;
+  color:#FFFFFF;
+}
 
 .loading{
   text-align: center;
