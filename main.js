@@ -16,7 +16,7 @@ firebase.analytics();
 
 var db=firebase.firestore();
 var username;
-var usercnt;
+var usercnt=0;
 function storeData(item_name,price){
 
     db.collection("items").doc(username+usercnt).set({
@@ -49,19 +49,48 @@ function storeData(item_name,price){
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    if(user!=null){
+
 
     document.getElementById("login_status").style.display="block";
     document.getElementById("sign_login").style.display="none";
+
     username=user.email;
-    db.collection("users")
+
+    var docRef=db.collection("users").doc(username);
+
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+        usercnt=doc.data().count;
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+    /*db.collection("users").where()
     .get().then(function(querySnapshot){
       querySnapshot.forEach(function(doc){
         usercnt=doc.data().count;
         console.log("Update user count!"+usercnt);
       });
     });
-  }
+  /*  username=user.email;
+    db.collection("users").where(username, "==", true)
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            usercnt=doc.data().count;
+            console.log("Update user count!"+usercnt);
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });*/
+
 
 
 
