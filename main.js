@@ -49,7 +49,7 @@ function storeData(item_name,price){
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    if(user!=NULL){
+    if(user!=null){
 
     document.getElementById("login_status").style.display="block";
     document.getElementById("sign_login").style.display="none";
