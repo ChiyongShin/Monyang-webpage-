@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     .get().then(function(querySnapshot){
       querySnapshot.forEach(function(doc){
 
+
         usercnt=doc.data().count;
 
       });
@@ -100,7 +101,7 @@ function showData(){
 function delData(){
   const list__cart= document.querySelector("#list_cart");
   const total_price= document.querySelector("#total_price");
-  for(var i=0;i<160;i++){
+  for(var i=0;i<usercnt;i++){
   db.collection("items").doc(username+i).delete().then(function() {
     console.log("Document successfully deleted!");
       }).catch(function(error) {
