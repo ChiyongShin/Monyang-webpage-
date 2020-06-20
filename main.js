@@ -16,7 +16,7 @@ firebase.analytics();
 
 var db=firebase.firestore();
 var username;
-var usercnt=0;
+var usercnt;
 function storeData(item_name,price){
 
     db.collection("items").doc(username+usercnt).set({
