@@ -58,41 +58,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     var docRef=db.collection("users").doc(username);
 
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-        usercnt=doc.data().count;
-    } else {
+    docRef.get().then(function(doc) {
+      if (doc.exists) {
+          console.log("Document data:", doc.data());
+          usercnt=doc.data().count;
+        } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch(function(error) {
-    console.log("Error getting document:", error);
-});
-    /*db.collection("users").where()
-    .get().then(function(querySnapshot){
-      querySnapshot.forEach(function(doc){
-        usercnt=doc.data().count;
-        console.log("Update user count!"+usercnt);
-      });
+          console.log("No such document!");
+        }
+    }).catch(function(error) {
+      console.log("Error getting document:", error);
     });
-  /*  username=user.email;
-    db.collection("users").where(username, "==", true)
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            usercnt=doc.data().count;
-            console.log("Update user count!"+usercnt);
-        });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });*/
-
-
-
 
 
   } else {
