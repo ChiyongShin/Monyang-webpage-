@@ -103,7 +103,7 @@ function delData(){
   const total_price= document.querySelector("#total_price");
   var aaa=0;
   for(aaa=0;aaa<usercnt;aaa++){
-  db.collection("items").doc(username+i).delete().then(function() {
+  db.collection("items").doc(username+aaa).delete().then(function() {
     console.log("Document successfully deleted!");
       }).catch(function(error) {
         console.error("Error removing document: ", error);
