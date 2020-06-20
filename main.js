@@ -16,7 +16,7 @@ firebase.analytics();
 
 var db=firebase.firestore();
 var username;
-var usercnt=0;
+var usercnt;
 function storeData(item_name,price){
 
     db.collection("items").doc(username+usercnt).set({
@@ -107,6 +107,7 @@ function delData(){
       }).catch(function(error) {
         console.error("Error removing document: ", error);
       });
+      alert(i);
     }
     usercnt=0;
     db.collection("users").doc(username).set({
