@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     .get().then(function(querySnapshot){
       querySnapshot.forEach(function(doc){
         usercnt=doc.data().count;
-        console.log("Update user count!");
+        console.log("Update user count!"+usercnt);
       });
     });
 
