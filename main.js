@@ -25,7 +25,7 @@ function storeData(item_name,price){
         userId: username
     })
     .then(function() {
-        console.log("Document successfully written!");
+        console.log("Item successfully added!");
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
@@ -38,7 +38,7 @@ function storeData(item_name,price){
 
     })
     .then(function() {
-        console.log("Document successfully written!");
+        console.log("user's profile updated!");
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
