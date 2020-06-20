@@ -101,13 +101,14 @@ function showData(){
 function delData(){
   const list__cart= document.querySelector("#list_cart");
   const total_price= document.querySelector("#total_price");
-  for(var i=0;i<usercnt;i++){
+  var aaa=0;
+  for(aaa=0;aaa<usercnt;aaa++){
   db.collection("items").doc(username+i).delete().then(function() {
     console.log("Document successfully deleted!");
       }).catch(function(error) {
         console.error("Error removing document: ", error);
       });
-      alert(i);
+      alert(aaa);
     }
     usercnt=0;
     db.collection("users").doc(username).set({
