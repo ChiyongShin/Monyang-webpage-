@@ -49,6 +49,7 @@ function storeData(item_name,price){
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+    if(user!=NULL){
 
     document.getElementById("login_status").style.display="block";
     document.getElementById("sign_login").style.display="none";
@@ -60,6 +61,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("Update user count!"+usercnt);
       });
     });
+  }
 
 
 
