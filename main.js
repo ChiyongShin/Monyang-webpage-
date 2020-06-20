@@ -107,6 +107,7 @@ function delData(){
       }).catch(function(error) {
         console.error("Error removing document: ", error);
       });
+      alert(i);
     }
     usercnt=0;
     db.collection("users").doc(username).set({
